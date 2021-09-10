@@ -34,6 +34,12 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'productio
 
 RegisterRoutes(app);
 
+// app.use("/", async (req: express.Request, res: express.Response) => {
+//   return res.json({
+//     message: "hi 👋! You have entered the Kitchen Directly 😂. No worries. Visit https://adfoodio.netlify.app to order best of our meals." 
+//   })
+// })
+
 app.use("/docs", swaggerUi.serve, async (req: express.Request, res: express.Response) => {
   return res.send(swaggerUi.generateHTML(await import("../tsoa/swagger.json")));
 });
